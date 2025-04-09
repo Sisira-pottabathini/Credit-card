@@ -1,0 +1,85 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 252 87% 48%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 252 10% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 270 67% 47%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    @apply antialiased scroll-smooth;
+  }
+}
+
+.mesh-background {
+  background-color: #0F0F1B;
+  background-image: 
+    radial-gradient(at 40% 20%, hsla(270, 67%, 15%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(252, 87%, 10%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(220, 66%, 15%, 1) 0px, transparent 50%);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.glass-card {
+  background: rgba(16, 16, 32, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cyber-button {
+  @apply relative overflow-hidden border border-transparent transition-all duration-300 bg-gradient-to-r from-cyberpurple to-cyberblue hover:from-cyberpurple-light hover:to-cyberblue-light shadow-lg hover:shadow-xl;
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.cyber-button:hover::before {
+  left: 100%;
+}
+
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+}
